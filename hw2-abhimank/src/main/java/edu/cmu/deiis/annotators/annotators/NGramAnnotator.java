@@ -19,8 +19,12 @@ import edu.cmu.deiis.types.Token;
  */
 public class NGramAnnotator extends JCasAnnotator_ImplBase {
 
-  /* (non-Javadoc)
-   * @see org.apache.uima.analysis_component.JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
+  /*
+   * This is the main process class for the NGramAnnotator.
+   * The logic here is mostly to start with unigram and keep adding one more token until we hit the newline.
+   * Until we dint hit the newline we keep creating overlapping bigrams/trigrams besides the usual non-overlapping
+   * unigrams.
+   * 
    */
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException {
@@ -57,7 +61,6 @@ public class NGramAnnotator extends JCasAnnotator_ImplBase {
 //        System.out.println(" token1: "+token1.getCoveredText());
       }
       if(token3.getCoveredText().contains("?")||token3.getCoveredText().contains(".")){
-//        System.out.println("Found the mofo, "+token3.getCoveredText());
         token1=null;
         token2=null;
         token3=null;

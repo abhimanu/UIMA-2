@@ -15,8 +15,10 @@ import edu.cmu.deiis.types.Question;
  */
 public class QuestionAnnotator extends JCasAnnotator_ImplBase {
 
-  /* (non-Javadoc)
-   * @see org.apache.uima.analysis_component.JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
+  /*
+   * This is the main process class for the QuestionAnnotator. 
+   * We dont sent anyother member apart from the base class's begin and end
+   *    
    */
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException {

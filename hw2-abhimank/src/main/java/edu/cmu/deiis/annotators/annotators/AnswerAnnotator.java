@@ -15,8 +15,10 @@ import edu.cmu.deiis.types.Answer;
  */
 public class AnswerAnnotator extends JCasAnnotator_ImplBase {
 
-  /* (non-Javadoc)
-   * @see org.apache.uima.analysis_component.JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
+  /* 
+   * This is the proces method for answer annotator.
+   * The only significant part set here apart from the usual mundane Annotation member setting is
+   * setting of the member isCorrect.
    */
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException {

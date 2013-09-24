@@ -15,8 +15,13 @@ import edu.cmu.deiis.types.Token;
  */
 public class TokenAnnotator extends JCasAnnotator_ImplBase {
 
-  /* (non-Javadoc)
-   * @see org.apache.uima.analysis_component.JCasAnnotator_ImplBase#process(org.apache.uima.jcas.JCas)
+  /*
+   * This is he main process class for the TokenAnnotator class.
+   * We get the tokens here from the raw text.
+   * We make the assumption that there is just one white space between two adjacent tokens
+   * We split the text first one the basis of the carriage return and then white spaces
+   * We update the begin and end superclass members according;y
+   * 
    */
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException {
