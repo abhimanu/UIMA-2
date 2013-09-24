@@ -9,18 +9,30 @@
     <delegateAnalysisEngine key="NGramAnnotator">
       <import name="NGramAnnotator"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="QuestionAnnotator">
+      <import name="QuestionAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AnswerAnnotator">
+      <import name="AnswerAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AnswerScoreAnnotator">
+      <import name="AnswerScoreAnnotator"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>hw2-abhimank-aae</name>
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
+    <configurationParameters searchStrategy="language_fallback"/>
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
         <node>TokenAnnotator</node>
         <node>NGramAnnotator</node>
+      <node>QuestionAnnotator</node>
+        <node>AnswerAnnotator</node>
+        <node>AnswerScoreAnnotator</node>
       </fixedFlow>
     </flowConstraints>
     <typePriorities/>
@@ -31,6 +43,9 @@
         <outputs>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.NGram</type>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
+        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Answer</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Question</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.AnswerScore</type>
         </outputs>
         <languagesSupported/>
       </capability>
