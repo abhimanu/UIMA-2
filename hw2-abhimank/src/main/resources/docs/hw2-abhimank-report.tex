@@ -17,11 +17,11 @@ NLP issues that I took into account while designing the logical architecture
 and implementing UIMA analysis engine design.
 We have a total of 5 annotator classes: 1) TokenAnnotator, 2)NGrammAnnotator,
 3) QuestionAnnotator, 4)QuestionAnnotator, and finally 5)AnswerScoreAnnotator.
-Each class has a corressponding Analysis Engone Descroptor XML file that
-defines its inout output set and types used.
+Each class has a corresponding Analysis Engone Descriptor XML file that
+defines its input output set and types used.
 
 \subsection{Class TokenAnnotator}
-This class is the basic token annotatir class that annotates every token 
+This class is the basic token annotator class that annotates every token 
 encountered in the dataset. It stores the basic tokens encountered in the text. 
 
 \subsection{Class NgramAnnotator}
@@ -37,7 +37,7 @@ This class just extracts the begin and end of the question.
  
 \subsection{Class AnswerAnnotator}
 This class encapsulates the answers provided to a question. Apart from
-extracting the end and begin of the answer it also stores the correctnes of the
+extracting the end and begin of the answer it also stores the correctness of the
 answer.
 
 \section{Special Points}
