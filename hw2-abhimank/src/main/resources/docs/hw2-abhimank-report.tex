@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Hw2 Documentation, LTI 11791}
+\author{Abhimanu Kumar \\ Andre Id - ABHIMANK}
+\date
+%\usepackage{natbib}
+%\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Architectutre Design}
+I describe here the design considerations, UIMA issues and other 
+NLP issues that I took into account while designing the logical architecture 
+and implementing UIMA analysis engine design.
+We have a total of 5 annotator classes: 1) TokenAnnotator, 2)NGrammAnnotator,
+3) QuestionAnnotator, 4)QuestionAnnotator, and finally 5)AnswerScoreAnnotator.
+Each class has a corressponding Analysis Engone Descroptor XML file that
+defines its inout output set and types used.
+
+\subsection{Class TokenAnnotator}
+This class is the basic token annotatir class that annotates every token 
+encountered in the dataset. It stores the basic tokens encountered in the text. 
+
+\subsection{Class NgramAnnotator}
+This is the class that encapsulates the group of tokens that are taken as 
+bi-gram tri-gram etc. I create uni-grams, bi-grams as well as tri-grams, and 
+all that creation logic in the same class. It creats a set of overlapping
+bi-grams and tri-grams.
+
+
+\subsection{Class QuestionAnnotator}
+This class encapsulates the methd to get the sentence body of the question. 
+This class just extracts the begin and end of the question.
+ 
+\subsection{Class AnswerAnnotator}
+This class encapsulates the answers provided to a question. Apart from
+extracting the end and begin of the answer it also stores the correctnes of the
+answer.
+
+\section{Special Points}
+1) I have coded logic to create uni-gram, bi-gram and tri-grams in a single
+class. This helps in code reusability as well as compactness of the code.
+
+2) The scoring function used is the number of NGram overlap between an answer
+and its question. It is a simple yet good scoring method. It gives a precision
+of 0.5 nnd 0.6666 on the two documents given as input.
+
+3) The precision is defined as (number of correct answers in top N)/N where N is
+the total number of correct answer.
+
+\section{Checking The Output}
+Run the hw2-abhimank-aae.xml, the aggregate analysis engine, and it gives the 
+precision of the documents in the console.  
+%\bibliographystyle{plain}
+%\bibliography{references}
+\end{document}
